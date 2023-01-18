@@ -6,3 +6,6 @@ class Item(models.Model):
     item_image = models.CharField(max_length=300)
     def __str__(self):
         return f"{self.name}"
+
+
+# python3 manage.py dumpdata jwt_auth --output jwt_auth/seeds.json --indent=2;
