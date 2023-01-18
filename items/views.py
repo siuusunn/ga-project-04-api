@@ -8,6 +8,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .models import Item
 from .serializers.common import ItemSerializer
+from .serializers.populated import PopulatedItemSerializer
 
 class ItemListView(APIView):
 
@@ -48,7 +49,7 @@ class ItemDetailView(APIView):
   def get(self, _request, pk):
     try:
       item = Item.objects.get(pk=pk)
-      serialized_item = ItemSerializer(item)
+      serialized_item = PopulatedItemSerializer(item)
       return Response(serialized_item.data, status=status.HTTP_200_OK)
     except Item.DoesNotExist:
       raise NotFound(detail="Can't find that item! Your young cousins must've lost them.")
