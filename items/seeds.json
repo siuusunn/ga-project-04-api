@@ -1,0 +1,42 @@
+[
+{
+  "model": "items.item",
+  "pk": 1,
+  "fields": {
+    "name": "Partner",
+    "description": "Your parents and relatives are so happy to see that you've got a partner that they give you double the red packets.",
+    "item_image": "partner.jpg",
+    "multiplier": 1
+  }
+},
+{
+  "model": "items.item",
+  "pk": 2,
+  "fields": {
+    "name": "Silver Tongue",
+    "description": "Gives you the Tongue of Silver and the ability to spew good wishes to your elders non-stop, making them very happy.",
+    "item_image": "silver-tongue.jpeg",
+    "multiplier": 1
+  }
+},
+{
+  "model": "items.item",
+  "pk": 3,
+  "fields": {
+    "name": "Deep Pocket",
+    "description": "Give you an ultra-deep pocket to carry more red packets. No one knows how many red packets you",
+    "item_image": "deep-pocket.jpeg",
+    "multiplier": 1
+  }
+},
+{
+  "model": "items.item",
+  "pk": 4,
+  "fields": {
+    "name": "\"Garden\" Family Assorted Biscuit",
+    "description": "A big box of Family Assorted Biscuit from the brand Garden. The most basic gift you could bring to a Chinese New Year gathering. You can feel the judgy looks...",
+    "item_image": "garden-biscuits.jpeg",
+    "multiplier": 1
+  }
+}
+]
