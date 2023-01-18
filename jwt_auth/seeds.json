@@ -1,90 +1,102 @@
 [
-  {
-    "model": "jwt_auth.user",
-    "pk": 1,
-    "fields": {
-      "password": "pbkdf2_sha256$390000$YEeyI37b9XCnlYWHGLKxhS$DCj4TDExm9TfQTjIEev6ROZvNb5QJMgLrFsUDV5a/jQ=",
-      "last_login": "2023-01-18T13:10:41.201Z",
-      "is_superuser": true,
-      "username": "admin",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2023-01-18T13:01:42.379Z",
-      "email": "admin@admin.com",
-      "first_name": "",
-      "last_name": "",
-      "profile_image": "",
-      "number_of_red_packets": 0,
-      "multiplier": 1,
-      "groups": [],
-      "user_permissions": [],
-      "items": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 2,
-    "fields": {
-      "password": "pbkdf2_sha256$390000$Ae2JkbT4a9kIt9vfOskGYf$h3M9Xwo2lS8GIkg14z9UMNIpLKH5U9wTC0W2Ho1kquw=",
-      "last_login": null,
-      "is_superuser": false,
-      "username": "CrispyChicken",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2023-01-18T13:32:41.191Z",
-      "email": "crispychicken@chicken.com",
-      "first_name": "Crispy",
-      "last_name": "Chicken",
-      "profile_image": "crispy-chicklen.jpeg",
-      "number_of_red_packets": 0,
-      "multiplier": 1,
-      "groups": [],
-      "user_permissions": [],
-      "items": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 3,
-    "fields": {
-      "password": "pbkdf2_sha256$390000$L1lTHM5M19Aal28b5cXyhO$e9mNmjnpst7AqQfCMbGeE4qW3HsK3EheHdeYHyZSXe4=",
-      "last_login": null,
-      "is_superuser": false,
-      "username": "SoggyChicken",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2023-01-18T13:34:12.977Z",
-      "email": "soggychicken@chicken.com",
-      "first_name": "Soggy",
-      "last_name": "Chicken",
-      "profile_image": "soggy-chicklen.jpeg",
-      "number_of_red_packets": 0,
-      "multiplier": 1,
-      "groups": [],
-      "user_permissions": [],
-      "items": []
-    }
-  },
-  {
-    "model": "jwt_auth.user",
-    "pk": 4,
-    "fields": {
-      "password": "pbkdf2_sha256$390000$fPQ0h1SfU2v2mL6P3XKeYR$Nfi1+fx7VtIkJrOJ/kYHFziA3JidmmPE3N4lzZH8KUQ=",
-      "last_login": null,
-      "is_superuser": false,
-      "username": "Cousin-A",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2023-01-18T13:56:20.507Z",
-      "email": "cousinA@cousin.com",
-      "first_name": "Cousin",
-      "last_name": "A",
-      "profile_image": "cousin-a.jpeg",
-      "number_of_red_packets": 0,
-      "multiplier": 1,
-      "groups": [],
-      "user_permissions": [],
-      "items": []
-    }
+{
+  "model": "jwt_auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$YEeyI37b9XCnlYWHGLKxhS$DCj4TDExm9TfQTjIEev6ROZvNb5QJMgLrFsUDV5a/jQ=",
+    "last_login": "2023-01-18T15:57:40Z",
+    "is_superuser": true,
+    "username": "admin",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-01-18T13:01:42Z",
+    "email": "admin@admin.com",
+    "first_name": "Admin",
+    "last_name": "Admin",
+    "profile_image": "admin.jpeg",
+    "number_of_red_packets": 999999,
+    "multiplier": 1,
+    "groups": [],
+    "user_permissions": [],
+    "items": [
+      1,
+      2,
+      3,
+      4
+    ]
   }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$Ae2JkbT4a9kIt9vfOskGYf$h3M9Xwo2lS8GIkg14z9UMNIpLKH5U9wTC0W2Ho1kquw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "CrispyChicken",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-01-18T13:32:41Z",
+    "email": "crispychicken@chicken.com",
+    "first_name": "Crispy",
+    "last_name": "Chicken",
+    "profile_image": "crispy-chicklen.jpeg",
+    "number_of_red_packets": 0,
+    "multiplier": 1,
+    "groups": [],
+    "user_permissions": [],
+    "items": [
+      2,
+      4
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$L1lTHM5M19Aal28b5cXyhO$e9mNmjnpst7AqQfCMbGeE4qW3HsK3EheHdeYHyZSXe4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "SoggyChicken",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-01-18T13:34:12Z",
+    "email": "soggychicken@chicken.com",
+    "first_name": "Soggy",
+    "last_name": "Chicken",
+    "profile_image": "soggy-chicklen.jpeg",
+    "number_of_red_packets": 0,
+    "multiplier": 1,
+    "groups": [],
+    "user_permissions": [],
+    "items": [
+      4
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$fPQ0h1SfU2v2mL6P3XKeYR$Nfi1+fx7VtIkJrOJ/kYHFziA3JidmmPE3N4lzZH8KUQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Cousin-A",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-01-18T13:56:20Z",
+    "email": "cousinA@cousin.com",
+    "first_name": "Cousin",
+    "last_name": "A",
+    "profile_image": "cousin-a.jpeg",
+    "number_of_red_packets": 0,
+    "multiplier": 1,
+    "groups": [],
+    "user_permissions": [],
+    "items": [
+      4
+    ]
+  }
+}
 ]
