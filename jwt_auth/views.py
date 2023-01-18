@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.exceptions import PermissionDenied
+from rest_framework.exceptions import PermissionDenied, NotFound
 from datetime import datetime, timedelta
 from django.contrib.auth import get_user_model
 from django.conf import settings
@@ -46,3 +46,12 @@ class UserListView(APIView):
     users = User.objects.all()
     serialized_users = UserSerializer(users, many=True)
     return Response(serialized_users.data, status=status.HTTP_200_OK)
+
+class UserDetailView(APIView):
+  def get(self, _request, pk):
+    try:
+      user = User.objects.get(pk=pk)
+      serialized_user = UserSerializer(user)
+      return Response(serialized_user.data, status=status.HTTP_200_OK)
+    except User.DoesNotExist:
+      raise NotFound(detail="Can't find that user! Your young cousins must've lost them.")
