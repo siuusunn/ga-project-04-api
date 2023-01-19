@@ -1,42 +1,112 @@
 [
-{
-  "model": "items.item",
-  "pk": 1,
-  "fields": {
-    "name": "Partner",
-    "description": "Your parents and relatives are so happy to see that you've got a partner that they give you double the red packets.",
-    "item_image": "partner.jpg",
-    "multiplier": 1
+  {
+    "model": "items.item",
+    "pk": 1,
+    "fields": {
+      "name": "\"Garden\" Family Assorted Biscuit",
+      "description": "A big box of Family Assorted Biscuit from the brand Garden. The most basic gift you could bring to a Chinese New Year gathering. You can feel the judgy looks...",
+      "item_image": "garden-biscuits.jpeg",
+      "red_packets_needed_to_unlock": 1,
+      "multiplier": 1
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 2,
+    "fields": {
+      "name": "Silver Tongue",
+      "description": "Gives you the Tongue of Silver and the ability to spew good wishes to your elders non-stop, making them very happy.",
+      "item_image": "silver-tongue.jpeg",
+      "red_packets_needed_to_unlock": 2,
+      "multiplier": 1
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 3,
+    "fields": {
+      "name": "Deep Pocket",
+      "description": "Give you an ultra-deep pocket to carry more red packets. No one knows how many red packets you've already got.",
+      "item_image": "deep-pocket.jpeg",
+      "red_packets_needed_to_unlock": 3,
+      "multiplier": 1
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 4,
+    "fields": {
+      "name": "Partner",
+      "description": "Your parents and relatives are so happy to see you've come home with a partner so they're giving you double the red packets.",
+      "item_image": "partner.jpeg",
+      "red_packets_needed_to_unlock": 4,
+      "multiplier": 1
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 5,
+    "fields": {
+      "name": "Mediocre Gift Set from Supermarkets",
+      "description": "A mediocre gift set you bought from the supermarket, slightly better than \"Garden\" Family Assorted Biscuits. You are starting the feel the respect from everyone in the room.",
+      "item_image": "mediocre-gift-set.jpeg",
+      "red_packets_needed_to_unlock": 5,
+      "multiplier": 1
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 6,
+    "fields": {
+      "name": "Friend",
+      "description": "You brought a good friend to the party, they entertain your parents and relatives with their jokes",
+      "item_image": "friend.jpeg",
+      "red_packets_needed_to_unlock": 6,
+      "multiplier": 1
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 7,
+    "fields": {
+      "name": "Traditional Jacket",
+      "description": "You wear a traditional jacket to the party that screams \"Chinese New Year\", you get nods of approvals from the elders in the room",
+      "item_image": "traditional-jecket.jpeg",
+      "red_packets_needed_to_unlock": 7,
+      "multiplier": 1
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 8,
+    "fields": {
+      "name": "Home-made Turnip Cake",
+      "description": "You brought your home-made turnip cake to the party, everyone is telling you how delicious it is but might be secretly thinking that you are cheap on the preserved meats...",
+      "item_image": "turnip-cake.jpeg",
+      "red_packets_needed_to_unlock": 8,
+      "multiplier": 1
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 9,
+    "fields": {
+      "name": "Fancy Gift Set from Sogo",
+      "description": "A fancy gift set you bought from the Japanese shops in the basement of Sogo. You feel the massive amount of respect coming from everybody in the room.",
+      "item_image": "fancy-gift-set.jpeg",
+      "red_packets_needed_to_unlock": 9,
+      "multiplier": 1
+    }
+  },
+  {
+    "model": "items.item",
+    "pk": 10,
+    "fields": {
+      "name": "Baby",
+      "description": "You brought a baby to the party, everyone goes apeshit for the baby, no one notices your existence at this point. It's all about the baby.",
+      "item_image": "baby.jpeg",
+      "red_packets_needed_to_unlock": 10,
+      "multiplier": 1
+    }
   }
-},
-{
-  "model": "items.item",
-  "pk": 2,
-  "fields": {
-    "name": "Silver Tongue",
-    "description": "Gives you the Tongue of Silver and the ability to spew good wishes to your elders non-stop, making them very happy.",
-    "item_image": "silver-tongue.jpeg",
-    "multiplier": 1
-  }
-},
-{
-  "model": "items.item",
-  "pk": 3,
-  "fields": {
-    "name": "Deep Pocket",
-    "description": "Give you an ultra-deep pocket to carry more red packets. No one knows how many red packets you",
-    "item_image": "deep-pocket.jpeg",
-    "multiplier": 1
-  }
-},
-{
-  "model": "items.item",
-  "pk": 4,
-  "fields": {
-    "name": "\"Garden\" Family Assorted Biscuit",
-    "description": "A big box of Family Assorted Biscuit from the brand Garden. The most basic gift you could bring to a Chinese New Year gathering. You can feel the judgy looks...",
-    "item_image": "garden-biscuits.jpeg",
-    "multiplier": 1
-  }
-}
 ]
