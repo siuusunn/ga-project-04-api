@@ -8,6 +8,7 @@ from django.conf import settings
 import jwt
 
 from .serializers.common import UserSerializer
+from .serializers.populated import PopulatedUserSerializer
 
 User = get_user_model()
 
@@ -51,7 +52,24 @@ class UserDetailView(APIView):
   def get(self, _request, pk):
     try:
       user = User.objects.get(pk=pk)
-      serialized_user = UserSerializer(user)
+      serialized_user = PopulatedUserSerializer(user)
       return Response(serialized_user.data, status=status.HTTP_200_OK)
     except User.DoesNotExist:
       raise NotFound(detail="Can't find that user! Your young cousins must've lost them.")
+
+  def put(self, request, pk):
+    user_to_edit = User.objects.get(pk=pk)
+    updated_user = UserSerializer(user_to_edit, data=request.data)
+
+    try:
+      updated_user.is_valid()
+      print(updated_user.errors)
+      updated_user.save()
+      return Response(updated_user.data, status=status.HTTP_202_ACCEPTED)
+
+    except AssertionError as e:
+      return Response({"detail": str(e)}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+    except:
+      res = {"detail": "Unprocessable Entity"}
+      return Response(res, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
