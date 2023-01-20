@@ -8,11 +8,11 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .models import RedPackets
 from .serializers.common import RedPacketSerializer
-# from .serializers.populated import PopulatedCommentSerializer
+from .serializers.populated import PopulatedRedPacketSerializer
 
 class RedPacketListView(APIView):
 
-  permission_classes = (IsAuthenticatedOrReadOnly, )
+  # permission_classes = (IsAuthenticatedOrReadOnly, )
 
   def get(self, _request):
     redpackets = RedPackets.objects.all()
@@ -51,10 +51,10 @@ class RedPacketDetailView(APIView):
 
   def get(self, _request, pk):
     try:
-      comment = self.get_redpackets(pk=pk)
-      serialized_comment = PopulatedCommentSerializer(comment)
-      return Response(serialized_comment.data, status=status.HTTP_200_OK)
-    except comment.DoesNotExist:
+      redpackets = self.get_redpackets(pk=pk)
+      serialized_redpackets = PopulatedRedPacketSerializer(redpackets)
+      return Response(serialized_redpackets.data, status=status.HTTP_200_OK)
+    except RedPackets.DoesNotExist:
       raise NotFound(detail="Can't find those red packets! You might have dropped them somewhere. 2")
 
   def put(self, request, pk):
@@ -63,6 +63,7 @@ class RedPacketDetailView(APIView):
     updated_redpackets = RedPacketSerializer(redpackets_to_update, data=request.data)
     try:
       updated_redpackets.is_valid()
+      print(updated_redpackets.errors)
       updated_redpackets.save()
       return Response(updated_redpackets.data, status=status.HTTP_202_ACCEPTED)
 
@@ -72,8 +73,3 @@ class RedPacketDetailView(APIView):
     except:
       res = {"detail": "Unprocessable Entity"}
       return Response(res, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
-
-  # def delete(self, _request, pk):
-  #   comment_to_delete = self.get_redpackets(pk=pk)
-  #   comment_to_delete.delete()
-  #   return Response({"detail": "Deleted."}, status=status.HTTP_204_NO_CONTENT)

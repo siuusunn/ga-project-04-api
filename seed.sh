@@ -18,3 +18,6 @@ python3 manage.py loaddata jwt_auth/seeds.json
 
 echo "inserting comments"
 python3 manage.py loaddata comments/seeds.json
+
+echo "inserting comments"
+python3 manage.py loaddata redpackets/seeds.json
