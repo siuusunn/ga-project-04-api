@@ -25,6 +25,7 @@ class PocketListView(APIView):
     pocket_to_add = PocketSerializer(data=request.data)
     try:
       pocket_to_add.is_valid()
+      print(pocket_to_add.errors)
       pocket_to_add.save()
       return Response(pocket_to_add.data, status=status.HTTP_201_CREATED)
 
