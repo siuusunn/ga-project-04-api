@@ -6,9 +6,9 @@ dropdb red-packet-clicker
 echo "creating database red-packet-clicker"
 createdb red-packet-clicker
 
-python manage.py makemigrations
+python3 manage.py makemigrations
 
-python manage.py migrate
+python3 manage.py migrate
 
 echo "inserting items"
 python3 manage.py loaddata items/seeds.json
