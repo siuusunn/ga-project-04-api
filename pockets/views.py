@@ -16,7 +16,7 @@ class PocketListView(APIView):
 
   def get(self, _request):
     pocket = Pocket.objects.all()
-    serialized_pocket = PocketSerializer(pocket, many=True)
+    serialized_pocket = PopulatedPocketSerializer(pocket, many=True)
     return Response(serialized_pocket.data, status=status.HTTP_200_OK)
 
 
