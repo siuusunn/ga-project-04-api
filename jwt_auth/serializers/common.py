@@ -25,6 +25,16 @@ class UserSerializer(serializers.ModelSerializer):
 
     return data
 
+  # class Meta:
+  #   model = User
+  #   fields = ('id', 'email', 'username', 'first_name', 'last_name', 'profile_image', 'number_of_red_packets', 'items', 'multiplier')
+  #   read_only_fields = ('is_active', 'is_staff', 'password', 'password_confirmation')
+  #   # extra_kwargs = {
+  #   #   'password': {'write_only': True},
+  #   #   'password_confirmation': {'write_only': True}
+  #   # }
+
   class Meta:
     model = User
     fields = ('id', 'email', 'username', 'first_name', 'last_name', 'profile_image', 'password', 'password_confirmation', 'number_of_red_packets', 'items', 'multiplier')
+
