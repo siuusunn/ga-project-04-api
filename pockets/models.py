@@ -8,4 +8,4 @@ class Pocket(models.Model):
     owner = models.ForeignKey("jwt_auth.User", related_name="pocket", on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.owner}'s Pocket'"
+        return f"{self.owner}'s Pocket"
