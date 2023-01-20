@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import PermissionDenied, NotFound
+# from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from datetime import datetime, timedelta
 from django.contrib.auth import get_user_model
 from django.conf import settings
@@ -9,6 +10,7 @@ import jwt
 
 from .serializers.common import UserSerializer
 from .serializers.populated import PopulatedUserSerializer
+from .serializers.editProfile import EditProfileSerializer
 
 User = get_user_model()
 
@@ -21,6 +23,7 @@ class RegisterView(APIView):
     return Response(user_to_create.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 class LoginView(APIView):
+
   def post(self, request):
     # get the data from the request
     email = request.data.get('email')
@@ -49,6 +52,9 @@ class UserListView(APIView):
     return Response(serialized_users.data, status=status.HTTP_200_OK)
 
 class UserDetailView(APIView):
+
+  # permission_classes = (IsAuthenticated, )
+
   def get(self, _request, pk):
     try:
       user = User.objects.get(pk=pk)
@@ -59,7 +65,7 @@ class UserDetailView(APIView):
 
   def put(self, request, pk):
     user_to_edit = User.objects.get(pk=pk)
-    updated_user = UserSerializer(user_to_edit, data=request.data)
+    updated_user = PopulatedUserSerializer(user_to_edit, data=request.data)
 
     try:
       updated_user.is_valid()

@@ -55,12 +55,12 @@ class ItemDetailView(APIView):
       raise NotFound(detail="Can't find that item! Your young cousins must've lost them.")
 
   def put(self, request, pk):
-    comment_to_edit = self.get_comment(pk=pk)
-    updated_comment = CommentSerializer(comment_to_edit, data=request.data)
+    item_to_edit = self.get_item(pk=pk)
+    updated_item = ItemSerializer(item_to_edit, data=request.data)
     try:
-      updated_comment.is_valid()
-      updated_comment.save()
-      return Response(updated_comment.data, status=status.HTTP_202_ACCEPTED)
+      updated_item.is_valid()
+      updated_item.save()
+      return Response(updated_item.data, status=status.HTTP_202_ACCEPTED)
 
     except AssertionError as e:
       return Response({"detail": str(e)}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
