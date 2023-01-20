@@ -9,6 +9,7 @@ import jwt
 
 from .serializers.common import UserSerializer
 from .serializers.populated import PopulatedUserSerializer
+from pockets.serializers.common import PocketSerializer
 
 User = get_user_model()
 
@@ -17,6 +18,12 @@ class RegisterView(APIView):
     user_to_create = UserSerializer(data=request.data)
     if user_to_create.is_valid():
       user_to_create.save()
+      pocket_to_create = PocketSerializer(data={
+        "number_of_red_packets": 0,
+        "owner": user_to_create.data["id"]
+      })
+      if pocket_to_create.is_valid():
+        pocket_to_create.save()
       return Response({'message:': "Registration successful!"}, status=status.HTTP_201_CREATED)
     return Response(user_to_create.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
