@@ -6,37 +6,43 @@ from rest_framework import status
 from django.db import IntegrityError
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import CreateView
+
 from .models import Comment
 from .serializers.common import CommentSerializer
 from .serializers.populated import PopulatedCommentSerializer
 
 class CommentListView(APIView):
 
-  # permission_classes = (IsAuthenticatedOrReadOnly, )
+  permission_classes = (IsAuthenticatedOrReadOnly, )
 
   def get(self, _request):
     comments = Comment.objects.all()
     serialized_comments = PopulatedCommentSerializer(comments, many=True)
     return Response(serialized_comments.data, status=status.HTTP_200_OK)
 
+
   def post(self, request):
-        comment_to_add = CommentSerializer(data=request.data)
-        try:
-            comment_to_add.is_valid()
-            comment_to_add.save()
-            return Response(comment_to_add.data, status=status.HTTP_201_CREATED)
+    request.data['owner'] = request.user.id
+    comment_to_add = CommentSerializer(data=request.data)
+    try:
+      comment_to_add.is_valid()
+      comment_to_add.save()
+      return Response(comment_to_add.data, status=status.HTTP_201_CREATED)
 
-        except IntegrityError as e:
-            res = {
-                "detail": str(e)
-            }
-            return Response(res, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+    except IntegrityError as e:
+      res = {
+        "detail": str(e)
+      }
+      return Response(res, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
-        except AssertionError as e:
-            return Response({ "detail": str(e) }, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+    except AssertionError as e:
+      return Response({"detail": str(e)}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
-        except:
-            return Response({ "detail": "Unprocessable Entity" }, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+    except:
+      return Response({"detail": "Unprocessable Entity"}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
 
 class CommentDetailView(APIView):
 
