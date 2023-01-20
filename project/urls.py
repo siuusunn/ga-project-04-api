@@ -6,5 +6,5 @@ urlpatterns = [
     path('api/items/', include('items.urls')),
     path('api/users/', include('jwt_auth.urls')),
     path('api/comments/', include('comments.urls')),
-    path('api/redpackets/', include('redpackets.urls'))
+    path('api/pockets/', include('pockets.urls'))
 ]

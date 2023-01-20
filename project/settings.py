@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'items',
     'jwt_auth',
     'comments',
-    'redpackets'
+    'pockets'
 ]
 
 MIDDLEWARE = [
