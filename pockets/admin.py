@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import RedPackets
+from .models import Pocket
 
 # Register your models here.
 
-admin.site.register(RedPackets)
+admin.site.register(Pocket)

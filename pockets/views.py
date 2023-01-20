@@ -6,27 +6,27 @@ from rest_framework import status
 from django.db import IntegrityError
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
-from .models import RedPackets
-from .serializers.common import RedPacketSerializer
-from .serializers.populated import PopulatedRedPacketSerializer
+from .models import Pocket
+from .serializers.common import PocketSerializer
+from .serializers.populated import PopulatedPocketSerializer
 
-class RedPacketListView(APIView):
+class PocketListView(APIView):
 
   # permission_classes = (IsAuthenticatedOrReadOnly, )
 
   def get(self, _request):
-    redpackets = RedPackets.objects.all()
-    serialized_redpackets = RedPacketSerializer(redpackets, many=True)
-    return Response(serialized_redpackets.data, status=status.HTTP_200_OK)
+    pocket = Pocket.objects.all()
+    serialized_pocket = PocketSerializer(pocket, many=True)
+    return Response(serialized_pocket.data, status=status.HTTP_200_OK)
 
 
   def post(self, request):
     request.data['owner'] = request.user.id
-    redpackets_to_add = RedPacketSerializer(data=request.data)
+    pocket_to_add = PocketSerializer(data=request.data)
     try:
-      redpackets_to_add.is_valid()
-      redpackets_to_add.save()
-      return Response(redpackets_to_add.data, status=status.HTTP_201_CREATED)
+      pocket_to_add.is_valid()
+      pocket_to_add.save()
+      return Response(pocket_to_add.data, status=status.HTTP_201_CREATED)
 
     except IntegrityError as e:
       res = {
@@ -41,31 +41,31 @@ class RedPacketListView(APIView):
       return Response({"detail": "Unprocessable Entity"}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 
-class RedPacketDetailView(APIView):
+class PocketDetailView(APIView):
 
-  def get_redpackets(self, pk):
+  def get_poket(self, pk):
     try:
-      return RedPackets.objects.get(pk=pk)
-    except RedPackets.DoesNotExist:
+      return Pocket.objects.get(pk=pk)
+    except Pocket.DoesNotExist:
       raise NotFound(detail="Can't find those red packets! You might have dropped them somewhere.")
 
   def get(self, _request, pk):
     try:
-      redpackets = self.get_redpackets(pk=pk)
-      serialized_redpackets = PopulatedRedPacketSerializer(redpackets)
-      return Response(serialized_redpackets.data, status=status.HTTP_200_OK)
-    except RedPackets.DoesNotExist:
+      pocket = self.get_poket(pk=pk)
+      serialized_pocket = PopulatedPocketSerializer(pocket)
+      return Response(serialized_pocket.data, status=status.HTTP_200_OK)
+    except Pocket.DoesNotExist:
       raise NotFound(detail="Can't find those red packets! You might have dropped them somewhere. 2")
 
   def put(self, request, pk):
-    redpackets_to_update = self.get_redpackets(pk=pk)
+    pocket_to_update = self.get_poket(pk=pk)
     request.data['owner'] = request.user.id
-    updated_redpackets = RedPacketSerializer(redpackets_to_update, data=request.data)
+    updated_pocket = PocketSerializer(pocket_to_update, data=request.data)
     try:
-      updated_redpackets.is_valid()
-      print(updated_redpackets.errors)
-      updated_redpackets.save()
-      return Response(updated_redpackets.data, status=status.HTTP_202_ACCEPTED)
+      updated_pocket.is_valid()
+      print(updated_pocket.errors)
+      updated_pocket.save()
+      return Response(updated_pocket.data, status=status.HTTP_202_ACCEPTED)
 
     except AssertionError as e:
       return Response({"detail": str(e)}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
