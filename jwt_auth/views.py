@@ -56,14 +56,14 @@ class UserDetailView(APIView):
   def get(self, _request, pk):
     try:
       user = User.objects.get(pk=pk)
-      serialized_user = PopulatedUserSerializer(user)
+      serialized_user = UserSerializer(user)
       return Response(serialized_user.data, status=status.HTTP_200_OK)
     except User.DoesNotExist:
       raise NotFound(detail="Can't find that user! Your young cousins must've lost them.")
 
   def put(self, request, pk):
     user_to_edit = User.objects.get(pk=pk)
-    updated_user = PopulatedUserSerializer(user_to_edit, data=request.data)
+    updated_user = UserSerializer(user_to_edit, data=request.data)
 
     try:
       updated_user.is_valid()
