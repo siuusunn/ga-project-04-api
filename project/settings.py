@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     "rest_framework",
     'items',
     'jwt_auth',
-    'comments'
+    'comments',
+    'redpackets'
 ]
 
 MIDDLEWARE = [
