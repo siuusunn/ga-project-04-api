@@ -7,6 +7,7 @@ class Pocket(models.Model):
 
     number_of_red_packets = models.IntegerField(default=0)
     items = models.ManyToManyField('items.Item', related_name="pockets", blank=True)
+    multiplier = models.IntegerField(default=1)
     owner = models.ForeignKey("jwt_auth.User", related_name="pocket", on_delete=models.CASCADE)
 
     def __str__(self):
