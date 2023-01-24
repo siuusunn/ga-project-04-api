@@ -48,7 +48,7 @@ class LoginView(APIView):
       algorithm="HS256"
     )
 
-    return Response({'token': token, 'message': f"Welcome back {user_to_login.username}"})
+    return Response({'token': token, 'message': f"Welcome back {user_to_login.username}", "is_superuser": user_to_login.is_superuser})
 
 class UserListView(APIView):
   def get(self, _request):
