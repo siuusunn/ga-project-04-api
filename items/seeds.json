@@ -4,8 +4,8 @@
     "pk": 1,
     "fields": {
       "name": "\"Garden\" Family Assorted Biscuit",
-      "description": "A big box of Family Assorted Biscuit from the brand Garden. The most basic gift you could bring to a Chinese New Year gathering. You can feel the judgy looks...",
-      "item_image": "https://res.cloudinary.com/dpuq4rcio/image/upload/v1674217155/8-bit-garden-biscuits_rsqydj.png",
+      "description": "A big box of Family Assorted Biscuit from the brand Garden. The most basic gift you could bring to a Chinese New Year gathering. You still see the unfinished box from last year sitting on the counter. The judgy looks are coming from everywhere in the room.",
+      "item_image": "8-bit-garden-biscuits_rsqydj",
       "red_packets_needed_to_unlock": 1,
       "multiplier": 1
     }
@@ -15,21 +15,21 @@
     "pk": 2,
     "fields": {
       "name": "Silver Tongue",
-      "description": "Gives you the Tongue of Silver and the ability to spew good wishes to your elders non-stop, making them very happy.",
-      "item_image": "https://res.cloudinary.com/dpuq4rcio/image/upload/v1674412948/8-bit-silver-tongue_xam6kf.png",
-      "red_packets_needed_to_unlock": 2,
-      "multiplier": 1
+      "description": "The ability to spew good wishes to your elders non-stop, making them very happy.",
+      "item_image": "8-bit-silver-tongue_xam6kf",
+      "red_packets_needed_to_unlock": 50,
+      "multiplier": 2
     }
   },
   {
     "model": "items.item",
     "pk": 3,
     "fields": {
-      "name": "Deep Pocket",
-      "description": "Give you an ultra-deep pocket to carry more red packets. No one knows how many red packets you've already got.",
-      "item_image": "https://res.cloudinary.com/dpuq4rcio/image/upload/v1674407875/8-bit-deep-pocket_daxqfn.png",
-      "red_packets_needed_to_unlock": 3,
-      "multiplier": 1
+      "name": "Deep Pockets",
+      "description": "A pair of insanely ugly but highly functional cargo pants with ultra deep pockets for the red packet hustlers to carry more red packets. No one knows how many red packets you've already got. You ain't got styles but you got them red packets.",
+      "item_image": "8-bit-deep-pocket_daxqfn",
+      "red_packets_needed_to_unlock": 100,
+      "multiplier": 3
     }
   },
   {
@@ -37,21 +37,21 @@
     "pk": 4,
     "fields": {
       "name": "Partner",
-      "description": "Your parents and relatives are so happy to see you've come home with a partner so they're giving you double the red packets.",
-      "item_image": "https://res.cloudinary.com/dpuq4rcio/image/upload/v1674412348/8-bit-partner_yj2dqm.png",
-      "red_packets_needed_to_unlock": 4,
-      "multiplier": 1
+      "description": "Your parents and relatives are so happy to see you've come home with a partner that they're giving you double the red packets.",
+      "item_image": "8-bit-partner_yj2dqm",
+      "red_packets_needed_to_unlock": 500,
+      "multiplier": 4
     }
   },
   {
     "model": "items.item",
     "pk": 5,
     "fields": {
-      "name": "Mediocre Gift Set from Supermarkets",
+      "name": "Mediocre Gift Set from Supermarket",
       "description": "A mediocre gift set you bought from the supermarket, slightly better than \"Garden\" Family Assorted Biscuits. You are starting the feel the respect from everyone in the room.",
-      "item_image": "https://res.cloudinary.com/dpuq4rcio/image/upload/v1674411486/8-bit-mediocre-gift-set_bsbqx3.png",
-      "red_packets_needed_to_unlock": 5,
-      "multiplier": 1
+      "item_image": "8-bit-mediocre-gift-set_bsbqx3",
+      "red_packets_needed_to_unlock": 1000,
+      "multiplier": 5
     }
   },
   {
@@ -59,10 +59,10 @@
     "pk": 6,
     "fields": {
       "name": "Friend",
-      "description": "You brought a good friend to the party, they entertain your parents and relatives with their jokes",
-      "item_image": "https://res.cloudinary.com/dpuq4rcio/image/upload/v1674412044/8-bit-friend_unvrz5.png",
-      "red_packets_needed_to_unlock": 6,
-      "multiplier": 1
+      "description": "A very good friend of your who can entertain your parents and relatives with their jokes",
+      "item_image": "8-bit-friend_unvrz5",
+      "red_packets_needed_to_unlock": 2000,
+      "multiplier": 6
     }
   },
   {
@@ -70,10 +70,10 @@
     "pk": 7,
     "fields": {
       "name": "Traditional Jacket",
-      "description": "You wear a traditional jacket to the party that screams \"Chinese New Year\", you get nods of approvals from the elders in the room",
-      "item_image": "https://res.cloudinary.com/dpuq4rcio/image/upload/v1674410919/8-bit-traditional-jacket_z84bv3.png",
-      "red_packets_needed_to_unlock": 7,
-      "multiplier": 1
+      "description": "A traditional jacket that screams \"Chinese New Year\", you get nods of approvals from the elders in the room",
+      "item_image": "8-bit-traditional-jacket_z84bv3",
+      "red_packets_needed_to_unlock": 4000,
+      "multiplier": 7
     }
   },
   {
@@ -81,10 +81,10 @@
     "pk": 8,
     "fields": {
       "name": "Home-made Turnip Cake",
-      "description": "You brought your home-made turnip cake to the party, everyone is telling you how delicious it is but might be secretly thinking that you are cheap on the preserved meats...",
-      "item_image": "https://res.cloudinary.com/dpuq4rcio/image/upload/v1674410433/8-bit-turnip-cake_mah00p.png",
-      "red_packets_needed_to_unlock": 8,
-      "multiplier": 1
+      "description": "You brought your home-made turnip cake to the party, everyone is telling you how delicious it is but secretly thinking that you are cheap on the preserved meats.",
+      "item_image": "8-bit-turnip-cake_mah00p",
+      "red_packets_needed_to_unlock": 8000,
+      "multiplier": 8
     }
   },
   {
@@ -92,10 +92,10 @@
     "pk": 9,
     "fields": {
       "name": "Fancy Gift Set from Sogo",
-      "description": "A fancy gift set you bought from the Japanese shops in the basement of Sogo. You feel the massive amount of respect coming from everybody in the room.",
-      "item_image": "https://res.cloudinary.com/dpuq4rcio/image/upload/v1674411228/8-bit-fancy-gift-set_qvczsq.png",
-      "red_packets_needed_to_unlock": 9,
-      "multiplier": 1
+      "description": "A fancy gift set from the Japanese shops in the basement of Sogo. You feel the massive amount of respect coming from everybody in the room.",
+      "item_image": "8-bit-fancy-gift-set_qvczsq",
+      "red_packets_needed_to_unlock": 10000,
+      "multiplier": 9
     }
   },
   {
@@ -103,10 +103,10 @@
     "pk": 10,
     "fields": {
       "name": "Baby",
-      "description": "You brought a baby to the party, everyone goes apeshit for the baby, no one notices your existence at this point. It's all about the baby.",
-      "item_image": "https://res.cloudinary.com/dpuq4rcio/image/upload/v1674411785/8-bit-baby_mosvap.png",
-      "red_packets_needed_to_unlock": 10,
-      "multiplier": 1
+      "description": "A baby. Everyone goes apeshit for the baby, no one cares whose baby this is, no one notices your existence at this point, I don't even know where this baby comes from. But it's all about the baby.",
+      "item_image": "8-bit-baby_mosvap",
+      "red_packets_needed_to_unlock": 50000,
+      "multiplier": 100
     }
   }
 ]
