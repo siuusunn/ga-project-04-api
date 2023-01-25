@@ -8,6 +8,8 @@ from django.conf import settings
 import jwt
 
 from .serializers.common import UserSerializer
+from .serializers.populated import PopulatedUserSerializer
+from pockets.serializers.common import PocketSerializer
 
 User = get_user_model()
 
@@ -16,10 +18,17 @@ class RegisterView(APIView):
     user_to_create = UserSerializer(data=request.data)
     if user_to_create.is_valid():
       user_to_create.save()
+      pocket_to_create = PocketSerializer(data={
+        "number_of_red_packets": 0,
+        "owner": user_to_create.data["id"]
+      })
+      if pocket_to_create.is_valid():
+        pocket_to_create.save()
       return Response({'message:': "Registration successful!"}, status=status.HTTP_201_CREATED)
     return Response(user_to_create.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 class LoginView(APIView):
+
   def post(self, request):
     # get the data from the request
     email = request.data.get('email')
@@ -39,7 +48,7 @@ class LoginView(APIView):
       algorithm="HS256"
     )
 
-    return Response({'token': token, 'message': f"Welcome back {user_to_login.username}"})
+    return Response({'token': token, 'message': f"Welcome back {user_to_login.username}", "is_superuser": user_to_login.is_superuser})
 
 class UserListView(APIView):
   def get(self, _request):
@@ -48,6 +57,9 @@ class UserListView(APIView):
     return Response(serialized_users.data, status=status.HTTP_200_OK)
 
 class UserDetailView(APIView):
+
+  # permission_classes = (IsAuthenticated, )
+
   def get(self, _request, pk):
     try:
       user = User.objects.get(pk=pk)
@@ -55,3 +67,20 @@ class UserDetailView(APIView):
       return Response(serialized_user.data, status=status.HTTP_200_OK)
     except User.DoesNotExist:
       raise NotFound(detail="Can't find that user! Your young cousins must've lost them.")
+
+  def put(self, request, pk):
+    user_to_edit = User.objects.get(pk=pk)
+    updated_user = UserSerializer(user_to_edit, data=request.data)
+
+    try:
+      updated_user.is_valid()
+      print(updated_user.errors)
+      updated_user.save()
+      return Response(updated_user.data, status=status.HTTP_202_ACCEPTED)
+
+    except AssertionError as e:
+      return Response({"detail": str(e)}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+    except:
+      res = {"detail": "Unprocessable Entity"}
+      return Response(res, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
